@@ -53,14 +53,14 @@ export default function ContactsSection() {
               {
                 icon: 'MapPin',
                 title: 'Адрес',
-                value: 'г. Владимир',
-                href: '#',
-                sub: 'Адрес на картах — скоро',
+                value: 'г. Кольчугино, Советская 90',
+                href: 'https://yandex.ru/maps/?text=Кольчугино+Советская+90',
+                sub: 'Открыть на карте',
               },
               {
                 icon: 'Clock',
                 title: 'Режим работы',
-                value: 'Пн–Сб: 9:00 – 20:00',
+                value: 'Пн–Сб: 10:00 – 18:00',
                 href: null,
                 sub: 'Воскресенье — по записи',
               },
@@ -86,7 +86,7 @@ export default function ContactsSection() {
             {/* Social */}
             <div className="service-card rounded-2xl p-5">
               <div className="text-xs text-gray-500 font-medium uppercase tracking-wider mb-3">Написать нам</div>
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-3">
                 <a
                   href="https://wa.me/79190072169"
                   target="_blank"
@@ -95,6 +95,24 @@ export default function ContactsSection() {
                 >
                   <Icon name="MessageCircle" size={16} />
                   WhatsApp
+                </a>
+                <a
+                  href="https://vk.com/dsservis"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600/15 border border-blue-500/25 text-blue-400 hover:bg-blue-600/25 transition-all text-sm font-medium"
+                >
+                  <Icon name="Users" size={16} />
+                  ВКонтакте
+                </a>
+                <a
+                  href="https://max.ru/dsservis"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-purple-600/15 border border-purple-500/25 text-purple-400 hover:bg-purple-600/25 transition-all text-sm font-medium"
+                >
+                  <Icon name="Send" size={16} />
+                  Макс
                 </a>
                 <a
                   href="tel:+79190072169"
