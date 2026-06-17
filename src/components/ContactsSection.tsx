@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import Icon from '@/components/ui/icon';
+import LeadForm from '@/components/LeadForm';
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -125,42 +126,21 @@ export default function ContactsSection() {
             </div>
           </div>
 
-          {/* CTA card */}
+          {/* Form card */}
           <div ref={ref2} className="reveal-right">
-            <div className="service-card rounded-2xl p-8 h-full flex flex-col justify-center text-center border-blue-500/30">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-600/20 to-blue-900/30 border border-blue-500/30 flex items-center justify-center mx-auto mb-6 glow-blue">
-                <Icon name="CalendarCheck" size={32} className="text-blue-400" />
+            <div className="service-card rounded-2xl p-8 border-blue-500/30">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/20 to-blue-900/30 border border-blue-500/30 flex items-center justify-center glow-blue flex-shrink-0">
+                  <Icon name="ClipboardList" size={22} className="text-blue-400" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-black text-white" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                    Оставить заявку
+                  </h3>
+                  <p className="text-gray-500 text-xs">Перезвоним в течение 30 минут</p>
+                </div>
               </div>
-              <h3 className="text-2xl font-black text-white mb-3" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-                Запишитесь прямо сейчас
-              </h3>
-              <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                Позвоните или напишите — подберём удобное время и ответим на все вопросы по цене и срокам
-              </p>
-              <a
-                href="tel:+79190072169"
-                className="btn-primary px-6 py-4 rounded-xl font-bold text-white flex items-center justify-center gap-3 text-lg"
-              >
-                <Icon name="Phone" size={20} />
-                +7 919 007-21-69
-              </a>
-              <div className="mt-4 text-xs text-gray-600">
-                Бесплатная консультация — без обязательств
-              </div>
-
-              {/* Why us */}
-              <div className="grid grid-cols-3 gap-3 mt-8 pt-6 border-t border-blue-500/15">
-                {[
-                  { icon: 'Award', label: 'Опыт 5 лет' },
-                  { icon: 'ShieldCheck', label: 'Гарантия' },
-                  { icon: 'Star', label: 'Топ-мастера' },
-                ].map((item) => (
-                  <div key={item.label} className="text-center">
-                    <Icon name={item.icon} size={20} className="text-blue-400 mx-auto mb-1" />
-                    <div className="text-xs text-gray-500">{item.label}</div>
-                  </div>
-                ))}
-              </div>
+              <LeadForm />
             </div>
           </div>
         </div>

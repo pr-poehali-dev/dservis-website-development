@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS leads (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  service TEXT,
+  created_at TIMESTAMP DEFAULT NOW()
+);
