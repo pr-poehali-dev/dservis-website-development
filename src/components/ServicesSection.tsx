@@ -93,9 +93,7 @@ export function AlarmSection() {
       { name: 'GSM связь с авто', price: 'от 12 000 ₽', note: 'Полный онлайн-контроль', features: ['Управление через приложение', 'Уведомления на телефон', 'Блокировка двигателя', 'Работа в любой точке мира'], highlight: false },
     ],
     remove: [
-      { name: 'Штатная сигнализация', price: 'от 800 ₽', note: 'Сохранение штатной проводки', features: ['Аккуратный демонтаж', 'Восстановление проводки', 'Без следов вмешательства'], highlight: false },
-      { name: 'Нештатная с автозапуском', price: 'от 1 500 ₽', note: 'Полный демонтаж', features: ['Демонтаж всех модулей', 'Восстановление штатной', 'Проверка работы авто'], highlight: true },
-      { name: 'Сложные системы', price: 'от 2 500 ₽', note: 'GSM, GPS-трекеры', features: ['Поиск скрытых блоков', 'Восстановление CAN-шины', 'Акт выполненных работ'], highlight: false },
+      { name: 'Удаление блокировок и систем', price: 'от 3 000 ₽', note: 'Полное снятие охранных систем', features: ['Демонтаж всех блоков и модулей', 'Восстановление штатной проводки', 'Проверка работы автомобиля', 'Без следов вмешательства'], highlight: true },
     ],
     diag: [
       { name: 'Проверка работы', price: 'от 500 ₽', note: 'Базовая диагностика', features: ['Проверка датчиков', 'Тест пультов', 'Проверка сирены'], highlight: false },
@@ -130,9 +128,11 @@ export function AlarmSection() {
           ))}
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className={`flex flex-wrap justify-center gap-6 ${data[tab].length > 1 ? '' : ''}`}>
           {data[tab].map((card, i) => (
-            <PriceCard key={card.name} {...card} delay={i * 100} />
+            <div key={card.name} className={data[tab].length === 1 ? 'w-full max-w-sm' : 'w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]'}>
+              <PriceCard {...card} delay={i * 100} />
+            </div>
           ))}
         </div>
       </div>
