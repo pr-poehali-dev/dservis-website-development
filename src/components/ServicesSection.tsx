@@ -142,31 +142,11 @@ export function AlarmSection() {
 
 // ─── ТОНИРОВКА ────────────────────────────────────────────────
 export function TintingSection() {
-  const [tab, setTab] = useState<'5' | '15' | '50'>('15');
-
-  const tabs = [
-    { id: '5', label: '5% — Лимузин' },
-    { id: '15', label: '15% — Классика' },
-    { id: '50', label: '50% — Светлая' },
-  ] as const;
-
-  const data = {
-    '5': [
-      { name: 'Задние стёкла', price: 'от 2 500 ₽', note: '5% — почти непрозрачная', features: ['Защита от солнца 99%', 'Максимальная приватность', 'Теплоизоляция'], highlight: false },
-      { name: 'Все стёкла', price: 'от 5 000 ₽', note: '5% на весь периметр', features: ['Передние + задние', 'Лобовая полоса', 'Идеальная приватность'], highlight: true },
-      { name: 'Только боковые', price: 'от 3 500 ₽', note: 'Боковые двери 5%', features: ['Оба ряда дверей', 'Профессиональная укладка', 'Без пузырей'], highlight: false },
-    ],
-    '15': [
-      { name: 'Задние стёкла', price: 'от 2 000 ₽', note: '15% — стандарт', features: ['Защита от UV 99%', 'Приватность в салоне', 'Теплоизоляция'], highlight: false },
-      { name: 'Все стёкла', price: 'от 4 000 ₽', note: '15% на весь периметр', features: ['Полный комплект', 'Заводская плёнка', 'Гарантия 2 года'], highlight: true },
-      { name: 'Только задний ряд', price: 'от 1 500 ₽', note: 'Заднее + боковые задние', features: ['3 стекла', 'Быстрый монтаж', 'Без разводов'], highlight: false },
-    ],
-    '50': [
-      { name: 'Задние стёкла', price: 'от 1 500 ₽', note: '50% — почти прозрачная', features: ['Защита от UV', 'Минимальное затемнение', 'Разрешено ПДД'], highlight: false },
-      { name: 'Все стёкла', price: 'от 3 000 ₽', note: '50% полный комплект', features: ['Светлый вид', 'Защита от жары', 'Гарантия 2 года'], highlight: true },
-      { name: 'Лобовое (полоса)', price: 'от 800 ₽', note: 'Верхняя полоса лобового', features: ['До 20 см', 'Защита от солнца', 'Быстрый монтаж'], highlight: false },
-    ],
-  };
+  const cards = [
+    { name: 'Задние стёкла', price: 'от 2 500 ₽', note: '5% — почти непрозрачная', features: ['Защита от солнца 99%', 'Максимальная приватность', 'Теплоизоляция'], highlight: false },
+    { name: 'Все стёкла', price: 'от 5 000 ₽', note: '5% на весь периметр', features: ['Передние + задние', 'Лобовая полоса', 'Идеальная приватность'], highlight: true },
+    { name: 'Только боковые', price: 'от 3 500 ₽', note: 'Боковые двери 5%', features: ['Оба ряда дверей', 'Профессиональная укладка', 'Без пузырей'], highlight: false },
+  ];
 
   return (
     <section id="tinting" className="py-20 relative overflow-hidden">
@@ -178,22 +158,14 @@ export function TintingSection() {
           subtitle="Качественная плёнка — защита от солнца, приватность и стиль"
         />
 
-        <div className="flex justify-center gap-2 mb-10 flex-wrap">
-          {tabs.map((t) => (
-            <button
-              key={t.id}
-              onClick={() => setTab(t.id)}
-              className={`px-5 py-2.5 rounded-xl border text-sm font-medium transition-all duration-300 ${
-                tab === t.id ? 'tab-active' : 'border-white/10 text-gray-400 hover:border-blue-500/30 hover:text-gray-200'
-              }`}
-            >
-              {t.label}
-            </button>
-          ))}
+        <div className="flex justify-center mb-10">
+          <div className="tab-active px-6 py-2.5 rounded-xl border text-sm font-semibold">
+            5% — Лимузин
+          </div>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {data[tab].map((card, i) => (
+          {cards.map((card, i) => (
             <PriceCard key={card.name} {...card} delay={i * 100} />
           ))}
         </div>
