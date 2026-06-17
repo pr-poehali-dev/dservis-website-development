@@ -29,7 +29,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               </span>
             </div>
             <p className="text-gray-500 text-sm leading-relaxed">
-              Профессиональный автосервис во Владимире. Сигнализации, тонировка, бронирование и дооснащение.
+              Профессиональный автосервис в Кольчугино. Сигнализации, тонировка, бронирование и дооснащение.
             </p>
           </div>
 
@@ -64,11 +64,11 @@ export default function Footer({ onNavigate }: FooterProps) {
               </a>
               <div className="flex items-center gap-2 text-gray-400 text-sm">
                 <Icon name="MapPin" size={14} className="text-blue-400/60" />
-                г. Владимир
+                г. Кольчугино, Советская 90
               </div>
               <div className="flex items-center gap-2 text-gray-400 text-sm">
                 <Icon name="Clock" size={14} className="text-blue-400/60" />
-                Пн–Сб: 9:00 – 20:00
+                Пн–Сб: 10:00 – 18:00
               </div>
               <a
                 href="https://wa.me/79190072169"
