@@ -235,38 +235,6 @@ export function ArmorSection() {
 
 // ─── ДООСНАЩЕНИЕ ──────────────────────────────────────────────
 export function ExtrasSection() {
-  const [tab, setTab] = useState<'park' | 'media' | 'cam' | 'dvr'>('park');
-
-  const tabs = [
-    { id: 'park', label: 'Парктроники', icon: 'Radio' },
-    { id: 'media', label: 'Мультимедиа', icon: 'Monitor' },
-    { id: 'cam', label: 'Камеры', icon: 'Camera' },
-    { id: 'dvr', label: 'Видеорегистраторы', icon: 'Video' },
-  ] as const;
-
-  const data = {
-    park: [
-      { name: '4 датчика (задние)', price: 'от 2 500 ₽', note: 'Парковочные датчики', features: ['4 датчика сзади', 'Звуковой сигнал', 'Дисплей в комплекте'], highlight: false },
-      { name: '8 датчиков (перед + зад)', price: 'от 4 500 ₽', note: 'Полный контроль', features: ['8 датчиков 360°', 'Цветной дисплей', 'Уровни расстояния'], highlight: true },
-      { name: 'Интеграция в штатный дисплей', price: 'от 6 000 ₽', note: 'Вывод на штатный экран', features: ['Без доп. дисплея', 'Интеграция с CAN', 'Профессиональная укладка'], highlight: false },
-    ],
-    media: [
-      { name: '7" Android магнитола', price: 'от 8 000 ₽', note: 'Установка с навигацией', features: ['Android Auto / CarPlay', 'Навигация + Wi-Fi', 'Bluetooth, USB'], highlight: false },
-      { name: '9–10" штатная замена', price: 'от 15 000 ₽', note: 'Штатный вид + умная начинка', features: ['Штатный вид панели', 'Android 11+', 'Подключение камер'], highlight: true },
-      { name: 'Подключение Apple CarPlay', price: 'от 3 500 ₽', note: 'Для штатных систем', features: ['Беспроводной CarPlay', 'Android Auto', 'Без замены магнитолы'], highlight: false },
-    ],
-    cam: [
-      { name: 'Камера заднего вида', price: 'от 2 000 ₽', note: 'Помощь при парковке', features: ['HD 1080p', 'Угол обзора 170°', 'Ночной режим'], highlight: false },
-      { name: 'Камера + парктроники', price: 'от 5 500 ₽', note: 'Комплексное решение', features: ['Камера + 4 датчика', 'Единый дисплей', 'Гарантия 1 год'], highlight: true },
-      { name: 'Камеры 360° (4 камеры)', price: 'от 14 000 ₽', note: 'Вид сверху на авто', features: ['4 камеры вокруг авто', 'Bird-view режим', 'Запись на карту'], highlight: false },
-    ],
-    dvr: [
-      { name: 'Одноканальный регистратор', price: 'от 3 000 ₽', note: 'Запись вперёд', features: ['Full HD 1080p', 'Датчик удара', 'Скрытая установка'], highlight: false },
-      { name: 'Двухканальный (перед + зад)', price: 'от 6 000 ₽', note: 'Запись спереди и сзади', features: ['Два канала HD', 'Цикличная запись', 'GPS-трекер'], highlight: true },
-      { name: 'Регистратор с 4G и облаком', price: 'от 12 000 ₽', note: 'Онлайн-мониторинг', features: ['Трансляция в онлайн', '4G + Wi-Fi', 'Облачное хранение 30 дней'], highlight: false },
-    ],
-  };
-
   return (
     <section id="extras" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/5 to-transparent pointer-events-none" />
@@ -277,25 +245,16 @@ export function ExtrasSection() {
           subtitle="Расширьте возможности автомобиля — удобство и технологии на борту"
         />
 
-        <div className="flex justify-center gap-2 mb-10 flex-wrap">
-          {tabs.map((t) => (
-            <button
-              key={t.id}
-              onClick={() => setTab(t.id)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border text-sm font-medium transition-all duration-300 ${
-                tab === t.id ? 'tab-active' : 'border-white/10 text-gray-400 hover:border-blue-500/30 hover:text-gray-200'
-              }`}
-            >
-              <Icon name={t.icon} size={14} />
-              {t.label}
-            </button>
-          ))}
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {data[tab].map((card, i) => (
-            <PriceCard key={card.name} {...card} delay={i * 100} />
-          ))}
+        <div className="flex justify-center">
+          <div className="w-full max-w-sm">
+            <PriceCard
+              name="Дооснащение автомобиля"
+              price="После консультации"
+              note="Парктроники, мультимедиа, камеры, регистраторы"
+              features={['Подбор оборудования под ваш автомобиль', 'Профессиональная установка', 'Гарантия на все работы', 'Бесплатная консультация']}
+              highlight={true}
+            />
+          </div>
         </div>
       </div>
     </section>
